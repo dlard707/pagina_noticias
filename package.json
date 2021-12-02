@@ -1,0 +1,23 @@
+{
+  "name": "pagina_noticias",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Larronda",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlard707/pagina_celleptech.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dlard707/pagina_celleptech/issues"
+  },
+  "homepage": "https://github.com/dlard707/pagina_celleptech#readme",
+  "description": ""
+}
