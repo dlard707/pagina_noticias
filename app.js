@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 //criando a segunda rota
 app.get('/noticias', (req, res) => {
-    res.send('<h1>Noticias</h1>');
+    res.render('noticias/noticias.ejs');
 })
 
 
