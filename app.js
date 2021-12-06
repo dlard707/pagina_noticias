@@ -8,6 +8,9 @@ npm install nodemon
 //importando express
 const express = require('express');
 
+//Importanbdo o mockup
+const noticias = require('./mockup.js')
+
 //criando um objeto do express na varriável app
 const app = express();
 
@@ -26,7 +29,15 @@ app.get('/', (req, res) => {
 
 //criando a segunda rota
 app.get('/noticias', (req, res) => {
-    res.render('noticias/noticias.ejs');
+    res.render('noticias/noticias.ejs', {noticia:noticias[id]});
+})
+
+//Criando a rota noticia
+app.get('/noticia', (req, res) => {
+    //recupera id noticias por get
+    var id = req.query.id;
+
+    res.render('noticias/noticia.ejs', {noticia:noticias[id]});
 })
 
 
