@@ -24,12 +24,12 @@ app.use(express.static('./app/public'));
 
 //criando a primeira rota
 app.get('/', (req, res) => {
-    res.render('home/index.ejs');
+    res.render('home/index.ejs', {noticias: noticias.slice(0, 3)});
 });
 
 //criando a segunda rota
 app.get('/noticias', (req, res) => {
-    res.render('noticias/noticias.ejs', {noticia:noticias[id]});
+    res.render('noticias/noticias.ejs', {noticia:noticias});
 })
 
 //Criando a rota noticia
