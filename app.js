@@ -40,6 +40,11 @@ app.get('/noticia', (req, res) => {
     res.render('noticias/noticia.ejs', {noticia:noticias[id]});
 })
 
+//Rota responsável pelo recurso Admin
+app.get('/admin', (req, res) => {
+
+    res.render('admin/login')
+})
 
 //iniciando o servidor na porta 3000
 app.listen(3000, () => {
