@@ -23,7 +23,7 @@ app.get('/noticia', (req, res) => {
 //Rota responsável pelo recurso Admin
 app.get('/admin', (req, res) => {
 
-    if(!req.session.autorizado){
+    if(req.session.autorizado){
         res.render('admin/form_add_noticia', {title: 'Admin', autorizado:req.session.autorizado});
     }else{
         res.render('admin/login', {title:'Login'})
@@ -41,6 +41,21 @@ app.post('/admin/autenticar', (req, res) => {
         req.session.autorizado = true;
         
     }
+    res.redirect('/admin');
+})
+
+//rota responsável por salvar as noticias
+app.post('/admin/salvar-noticia', (req, res) => {
+
+    let {titulo, conteudo} = req.body;
+
+    res.redirect('/noticias');
+})
+
+
+//Rota responsável pela saída do usuário
+app.get('/admin/sair', (req, res) => {
+    req.session.destroy((err) => {});
     res.redirect('/admin');
 })
 
