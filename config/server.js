@@ -30,3 +30,5 @@ app.use(session({
     resave: false,   //Otimiza para que sessão não seja slava novamente a cada requisição
     saveUninitialized: false //Otimiza o uso de armazenamento no server, evitando armaaenar sessões não inicializadas
 }));
+
+module.exports = app;
