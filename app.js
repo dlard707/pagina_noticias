@@ -1,27 +1,7 @@
-// dependencias
-/*
-git init
-npm install express
-npm install nodemon
+const app = require('./config/server')
 
-*/
-//importando express
-const express = require('express');
-
-//Importanbdo o mockup
+//Importando o mockup
 const noticias = require('./mockup.js')
-
-//criando um objeto do express na varriável app
-const app = express();
-
-//Configuração do EJS
-app.set('view engine', 'ejs');
-//definindo o caminho das views ejs
-app.set('views', './app/views');
-
-//Configuração do Express para receber arquivos estáticos
-app.use(express.static('./app/public'));
-
 //criando a primeira rota
 app.get('/', (req, res) => {
     res.render('home/index', {noticias: noticias.slice(0, 3)});
@@ -43,7 +23,25 @@ app.get('/noticia', (req, res) => {
 //Rota responsável pelo recurso Admin
 app.get('/admin', (req, res) => {
 
-    res.render('admin/login')
+    if(!req.session.autorizado){
+        res.render('admin/form_add_noticia', {title: 'Admin', autorizado:req.session.autorizado});
+    }else{
+        res.render('admin/login', {title:'Login'})
+    }
+    
+})
+
+//Rota responsável pela autenticção do usuário
+app.post('/admin/autenticar', (req, res) => {
+
+    const {usuario, senha} = req.body
+
+    if(usuario == 'root' && senha == 'cellep1234'){
+
+        req.session.autorizado = true;
+        
+    }
+    res.redirect('/admin');
 })
 
 //iniciando o servidor na porta 3000
