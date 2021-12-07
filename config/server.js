@@ -9,16 +9,12 @@ npm install nodemon
 const express = require('express');
 // importacao express session
 const session = require('express-session')
+//criando um objeto do express na varriável app
+const app = express();
 
 //Configuarção do jasonparse e body parser
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
-
-
-
-//criando um objeto do express na varriável app
-const app = express();
 
 //Configuração do EJS
 app.set('view engine', 'ejs');
