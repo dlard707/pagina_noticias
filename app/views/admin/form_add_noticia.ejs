@@ -6,7 +6,29 @@
 
     <!-- -------------------------------------------------- -->
 
-<main>
+<main class="mb-4">
+    <div class="bg-light p-5 mb-4">
+        <div class="container">
+            <h1>Nova Noticia</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="/admin/salvar-noticia" method="post">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo da Notica" autocomplete="off" required>
+            </div>
+            <div class="mb-3">
+                <label for="conteudo" class="form-label">Conteúdo</label>
+                <textarea name="conteudo" id="conteudo" class="form-control" rows="5" cols="30" placeholder="Conteúdo da Noticia" style="resize:none;"></textarea>
+            </div>
+
+        </form>
+
+
+    </div>
+
 
 </main>
 

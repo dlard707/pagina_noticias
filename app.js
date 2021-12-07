@@ -24,12 +24,12 @@ app.use(express.static('./app/public'));
 
 //criando a primeira rota
 app.get('/', (req, res) => {
-    res.render('home/index.ejs', {noticias: noticias.slice(0, 3)});
+    res.render('home/index', {noticias: noticias.slice(0, 3)});
 });
 
 //criando a segunda rota
 app.get('/noticias', (req, res) => {
-    res.render('noticias/noticias.ejs', {noticia:noticias});
+    res.render('noticias/noticias', {noticia:noticias, title: 'Noticias'});
 })
 
 //Criando a rota noticia
@@ -37,7 +37,7 @@ app.get('/noticia', (req, res) => {
     //recupera id noticias por get
     var id = req.query.id;
 
-    res.render('noticias/noticia.ejs', {noticia:noticias[id]});
+    res.render('noticias/noticia', {noticia:noticias[id], title: 'Noticia'});
 })
 
 //Rota responsável pelo recurso Admin
