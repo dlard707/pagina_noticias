@@ -1,9 +1,14 @@
 {
   "name": "pagina_noticias",
   "version": "1.0.0",
+  "engines":{
+    "node": "14.x"
+  },
+  
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "David Larronda",
   "license": "ISC",
