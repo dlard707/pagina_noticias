@@ -1,10 +1,15 @@
 const app = require('./config/server')
+const db = require('./config/dbConnection')
 
 //Importando o mockup
-const noticias = require('./mockup.js')
+// const noticias = require('./mockup.js')
 //criando a primeira rota
-app.get('/', (req, res) => {
-    res.render('home/index', {noticias: noticias.slice(0, 3)});
+app.get('/', async(req, res) => {
+
+    //consulta SQL
+    var result = await db.query('SELECT * FROM noticias ORDER BY id_noticia DESC LIMIT 3')
+    // res.render('home/index', {noticias: noticias.slice(0, 3)});
+    res.render('home/index', {noticias: result.rows, title: 'Home'});
 });
 
 //criando a segunda rota
