@@ -18,11 +18,14 @@ app.get('/noticias', (req, res) => {
 })
 
 //Criando a rota noticia
-app.get('/noticia', (req, res) => {
+app.get('/noticia', async(req, res) => {
     //recupera id noticias por get
     var id = req.query.id;
 
-    res.render('noticias/noticia', {noticia:noticias[id], title: 'Noticia'});
+    let result = await db.query('SELECT*FROM noticias WHERE id_noticia = $1', [id])
+
+    // res.render('noticias/noticia', {noticia:noticias[id], title: 'Noticia'});
+    res.render('noticias/noticia', {noticia:result.rows[0], title: 'Noticia'});
 })
 
 //Rota responsável pelo recurso Admin
